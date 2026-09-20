@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Game Section -->
+        <div class="game-box">
+            <!-- Title -->
+            <h1>Guess the Number</h1>
+            <p class="subtitle">I'm thinking of a number between 1 and 100. Can you guess it?</p>
+            
+            <!-- Game Instructions -->
+            <div class="instructions">
+                <p>🎯 Try to guess the number in as few attempts as possible!</p>
+            </div>
+            
+            <!-- Input Section -->
+            <div class="input-section">
+                <input 
+                    type="number" 
+                    id="guessInput" 
+                    placeholder="Enter your guess (1-100)" 
+                    min="1" 
+                    max="100"
+                    autocomplete="off"
+                >
+                <button id="guessButton" class="btn btn-guess">Guess</button>
+            </div>
+            
+            <!-- Feedback Section -->
+            <div id="feedback" class="feedback"></div>
+            
+            <!-- Attempts Counter -->
+            <div class="attempts-section">
+                <p>Attempts: <span id="attemptCount">0</span></p>
+            </div>
+            
+            <!-- Guesses History -->
+            <div class="history-section">
+                <p><strong>Your guesses:</strong></p>
+                <div id="guessesList" class="guesses-list"></div>
+            </div>
+            
+            <!-- Game Over Section (Hidden by default) -->
+            <div id="gameOverSection" class="game-over-section hidden">
+                <div class="success-message">
+                    <h2>🎉 Congratulations! You Won! 🎉</h2>
+                    <p id="finalMessage"></p>
+                </div>
+                <button id="playAgainButton" class="btn btn-play-again">Play Again</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

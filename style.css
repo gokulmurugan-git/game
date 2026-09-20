@@ -1,0 +1,311 @@
+/* ====== General Styles ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ====== Container & Game Box ====== */
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.game-box {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Slide-in animation when page loads */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ====== Headings & Text ====== */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.instructions {
+    background: #f0f4ff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #667eea;
+    font-weight: 500;
+}
+
+/* ====== Input & Button Section ====== */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#guessInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+/* Input focus state */
+#guessInput:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Remove input spinner for number input */
+#guessInput::-webkit-outer-spin-button,
+#guessInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ====== Buttons ====== */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-guess {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-guess:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-guess:active {
+    transform: translateY(0);
+}
+
+.btn-play-again {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+.btn-play-again:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(245, 87, 108, 0.3);
+}
+
+/* ====== Feedback Section ====== */
+.feedback {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 20px 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Feedback message styles */
+.feedback.correct {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #28a745;
+}
+
+.feedback.too-high {
+    background: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffc107;
+}
+
+.feedback.too-low {
+    background: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffc107;
+}
+
+.feedback.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+}
+
+/* ====== Attempts Counter ====== */
+.attempts-section {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#attemptCount {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.3rem;
+}
+
+/* ====== Guesses History ====== */
+.history-section {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.history-section p {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.guesses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.guess-tag {
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ====== Game Over Section ====== */
+.game-over-section {
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.game-over-section.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.success-message {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.success-message h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.success-message p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#finalMessage {
+    color: #f0f0f0;
+}
+
+/* ====== Responsive Design (Mobile) ====== */
+@media (max-width: 600px) {
+    .game-box {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    .btn-guess {
+        width: 100%;
+    }
+
+    #guessInput {
+        width: 100%;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .success-message h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ====== Responsive Design (Small devices) ====== */
+@media (max-width: 400px) {
+    .game-box {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .instructions {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #attemptCount {
+        font-size: 1.1rem;
+    }
+}
